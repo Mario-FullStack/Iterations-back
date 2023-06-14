@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 9990;
+const port = 4522;
 
 // Configuration for the EJS template engine
 app.set('view engine', 'ejs');
@@ -13,7 +13,9 @@ app.get('/', (req, res) => {
     forInLoopData: {},
     whileLoopData: [],
     doWhileLoopData: [],
-    testForData:[]
+    testForData:[],
+    newDoWhileTest:{},
+    forArrayTurn:[]
   };
 
   // testing for
@@ -51,9 +53,24 @@ app.get('/', (req, res) => {
   } while (k < 5);
   console.log('Do-While Loop:', data.doWhileLoopData);
 
+  
+  // For Key Loop Test
+  const names = {Stuart:27, María:33, González:38, Selina:22, Karola:45};
+  for (let key in names) {
+    data.newDoWhileTest[key] = names[key];
+  }
+  console.log("Nombres y Edades",data.newDoWhileTest);
+  
+  // Array Turn Test
+  let num = 0;
+  do {
+    data.forArrayTurn.push(`Crazy Number: ${num}`);
+    num++;
+  } while (num < 51);
+  console.log('Crazy Number:', data.forArrayTurn);
+  
   res.render('index', { data });
 });
-
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on port http://localhost:${port}`);

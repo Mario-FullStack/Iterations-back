@@ -37,5 +37,19 @@
       <li><%= item %></li>
     <% }) %>
   </ul>
+
+  <h1>For Key Test:</h1>
+  <ul>
+    <% for (let key in data.newDoWhileTest) { %>
+      <li><%= key %>: <%= data.newDoWhileTest[key] %></li>
+    <% } %>
+  </ul>
+
+  <h1>50 Numbers:</h1>
+  <ul>
+    <% data.forArrayTurn.forEach((item) => { %>
+      <li><%= item %></li>
+    <% }) %>
+  </ul>
 </body>
 </html>
